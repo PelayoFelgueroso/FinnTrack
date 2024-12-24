@@ -7,7 +7,8 @@ import {
 import Image from "next/image";
 import SidebarLink from "./SidebarLink";
 import { sidebarLinks } from "@/constants";
-import Link from "next/link";
+import LogoLink from "./LogoLink";
+import Footer from "./Footer";
 
 const MobileNavbar = ({ user }: MobileNavProps) => {
   return (
@@ -23,20 +24,8 @@ const MobileNavbar = ({ user }: MobileNavProps) => {
           />
         </SheetTrigger>
         <SheetContent side="left" className="border-none bg-white">
-          <Link
-            href="/"
-            className="cursor-pointer flex items-center gap-1 px-4"
-          >
-            <Image
-              src="/icons/logo.svg"
-              width={34}
-              height={34}
-              alt="FinnTrack Logo"
-            />
-            <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">
-              FinnTrack
-            </h1>
-          </Link>
+          
+          <LogoLink />
 
           <div className="mobilenav-sheet">
             <SheetClose asChild>
@@ -47,7 +36,7 @@ const MobileNavbar = ({ user }: MobileNavProps) => {
                 USER
               </nav>
             </SheetClose>
-            FOOTER
+            <Footer user={user} type="mobile" />
           </div>
         </SheetContent>
       </Sheet>
